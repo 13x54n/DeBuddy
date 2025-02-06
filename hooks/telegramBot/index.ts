@@ -1,4 +1,5 @@
 import { Telegraf, Context } from 'telegraf';
+import {chat} from '../genkit/index';
 
 // Define a custom context with additional properties
 interface MyContext extends Context {
@@ -19,10 +20,16 @@ bot.start((ctx) => {
 
 // Handle a simple text message
 bot.on('text', (ctx) => {
-  if (ctx.userInfo) {
-    return ctx.reply(`Hello ${ctx.userInfo.firstName}, you said: ${ctx.message.text}`);
+  if (ctx) {
+    // Sample interaction
+    (async () => {
+      // Example conversation where user asks about crypto trading
+      const simpleResponse = await chat.send('hello');
+      console.log(simpleResponse);
+
+      return ctx.reply('Hello, you sent a message!');
+    })();
   }
-  return ctx.reply('Hello, you sent a message!');
 });
 
 // Launch the bot
@@ -31,3 +38,5 @@ bot.launch();
 // Gracefully stop the bot on SIGINT/SIGTERM
 process.once('SIGINT', () => bot.stop('SIGINT'));
 process.once('SIGTERM', () => bot.stop('SIGTERM'));
+
+console.log('Telegram Bot: @DeBuddyBot server is running!');
