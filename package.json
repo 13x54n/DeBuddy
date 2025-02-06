@@ -15,12 +15,13 @@
     "dev": "ts-node index.ts",
     "start": "node dist/index.js"
   },
-  "type": "module",
+  "type": "commonjs",
   "dependencies": {
     "@genkit-ai/googleai": "^0.9.12",
     "@google/generative-ai": "^0.21.0",
     "dotenv": "^16.4.7",
     "genkit": "^0.9.12",
-    "nillion-sv-wrappers": "^1.0.4"
+    "nillion-sv-wrappers": "^1.0.4",
+    "telegraf": "^4.16.3"
   }
 }
